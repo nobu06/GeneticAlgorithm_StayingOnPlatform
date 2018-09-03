@@ -231,7 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botPrefab: {fileID: 1681339292340230, guid: bfcec9502d7194d6aa24d9d72bc69327, type: 2}
   populationSize: 50
-  trialTime: 10
+  trialTime: 5
   generationText: {fileID: 1235557911}
   trialTimeText: {fileID: 622803206}
   populationText: {fileID: 1281317082}

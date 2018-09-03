@@ -14,12 +14,13 @@ public class Brain : MonoBehaviour
     bool alive = true;
     bool seeGround = true;
 
-
     private int numActions = 3;
 
     private float translateModifier = 0.1f;
 
     public float drawRayDuration = 2f;
+
+    private AvatarSpawner avatarSpawner;
 
 	private void OnCollisionEnter(Collision obj)
 	{
@@ -30,6 +31,12 @@ public class Brain : MonoBehaviour
         }
 	}
 
+    private void OnDestroy()
+    {
+        avatarSpawner.DestroyAvatar();
+    }
+
+
 	public void Init()
 	{
         //initialize DNA
@@ -39,6 +46,10 @@ public class Brain : MonoBehaviour
         dna = new DNA(DNALength, numActions);       // remember, DNALength -- see and can't see the platform
         timeAlive = 0;
         alive = true;
+
+        avatarSpawner = GetComponent<AvatarSpawner>();
+
+        avatarSpawner.InstantiateAvatar(transform); // creates an avatar that follows the bot
 	}
 
 	private void Update()
